@@ -10,4 +10,9 @@
     <Project Path="src/Shared/MyRecipeBook.Communication/MyRecipeBook.Communication.csproj" />
     <Project Path="src/Shared/MyRecipeBook.Exceptions/MyRecipeBook.Exceptions.csproj" />
   </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/CommonTestUtilities/CommonTestUtilities.csproj" />
+    <Project Path="test/UseCases.Test/UseCases.Test.csproj" />
+    <Project Path="test/Validators.Test/Validators.Test.csproj" />
+  </Folder>
 </Solution>

@@ -59,5 +59,51 @@ namespace MyRecipeBook.Exceptions {
                 resourceCulture = value;
             }
         }
+<<<<<<< HEAD
     }
 }
+=======
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string EMAIL_EMPTY => ResourceManager.GetString("EMAIL_EMPTY", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string EMAIL_EXISTS => ResourceManager.GetString("EMAIL_EXISTS", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string EMAIL_OR_PASSWORD_INVALID => ResourceManager.GetString("EMAIL_OR_PASSWORD_INVALID", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string INVALID_EMAIL => ResourceManager.GetString("INVALID_EMAIL", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string NAME_EMPTY => ResourceManager.GetString("NAME_EMPTY", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string PASSWORD_EMPTY => ResourceManager.GetString("PASSWORD_EMPTY", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string SHORT_PASSWORD => ResourceManager.GetString("SHORT_PASSWORD", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string UKNOW_ERROR => ResourceManager.GetString("UKNOW_ERROR", resourceCulture);
+
+	}
+}
+>>>>>>> f8ae38e (test: integrations tests for register user was added)

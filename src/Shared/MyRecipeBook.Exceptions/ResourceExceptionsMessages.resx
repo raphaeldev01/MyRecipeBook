@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+<<<<<<< HEAD
 	<!-- 
 		Microsoft ResX Schema
 
@@ -98,4 +99,39 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+=======
+	<accessability>public</accessability>
+	<data id="67b21879-85e0-4d47-b36d-f955fed1ca29" name="EMAIL_EMPTY" xml:space="preserve">
+		<value>Email cannot be empty</value>
+		<comment></comment>
+	</data>
+	<data id="fc632071-bec1-45c5-8844-b40c45843072" name="EMAIL_EXISTS" xml:space="preserve">
+		<value>This email already exists</value>
+		<comment></comment>
+	</data>
+	<data id="1f282343-e812-4987-ac61-a4ab8e9cc952" name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+		<value>The email or/and password is incorrect </value>
+		<comment></comment>
+	</data>
+	<data id="fe6f5b2c-c20e-4900-8958-f074f700b452" name="INVALID_EMAIL" xml:space="preserve">
+		<value>This Email is not valid</value>
+		<comment></comment>
+	</data>
+	<data id="ec5efb07-e6a2-4f44-bb19-7693442c1b3f" name="NAME_EMPTY" xml:space="preserve">
+		<value>Name cannot be empty</value>
+		<comment></comment>
+	</data>
+	<data id="1d99333b-eeca-4e14-a298-9b4ccb48c30c" name="PASSWORD_EMPTY" xml:space="preserve">
+		<value>Password cannot be empty</value>
+		<comment></comment>
+	</data>
+	<data id="fad5c2b2-aeaa-4431-bab1-083ec7908c46" name="SHORT_PASSWORD" xml:space="preserve">
+		<value>This Password is too short</value>
+		<comment></comment>
+	</data>
+	<data id="4d2c7126-284d-42ac-bcb4-054050739f78" name="UKNOW_ERROR" xml:space="preserve">
+		<value>There was an unexpected error.</value>
+		<comment></comment>
+	</data>
+>>>>>>> f8ae38e (test: integrations tests for register user was added)
 </root>

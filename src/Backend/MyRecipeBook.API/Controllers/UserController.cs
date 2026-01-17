@@ -6,9 +6,7 @@ using MyRecipeBook.Application.UseCase.User.Register;
 
 namespace MyRecipeBook.API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class UserController : ControllerBase
+public class UserController : MyRecipeBookBaseController
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
@@ -17,7 +15,7 @@ public class UserController : ControllerBase
         [FromBody] RequestRegisterUserJson request
         )
     {
-        var result =await  useCase.Execute(request);
+        var result = await useCase.Execute(request);
 
         return Created(string.Empty, result);
     }

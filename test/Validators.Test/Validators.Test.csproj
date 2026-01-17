@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <Folder Include="User/" />
+    <Folder Include="User/Login/" />
+    <Folder Include="User/Login/DoLogin/" />
     <Folder Include="User/Register/" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@ public class DoLoginUserValidator : AbstractValidator<RequestDoLoginUserJson>
     public DoLoginUserValidator()
     {
         RuleFor(user => user.Email).NotEmpty().WithMessage(ResourceExceptionsMessages.EMAIL_EMPTY);
-        RuleFor(user => user.Password.Length).GreaterThanOrEqualTo(6).WithMessage(ResourceExceptionsMessages.PASSWORD_EMPTY);
+        RuleFor(user => user.Password).NotEmpty().WithMessage(ResourceExceptionsMessages.PASSWORD_EMPTY);
 
         When(user => string.IsNullOrEmpty(user.Email) == false, () =>
         {

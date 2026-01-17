@@ -21,13 +21,29 @@ public class DoLoginUseCase : IDoLoginUseCase
 
     public async Task<ResponseRegisterUserJson> Execute (RequestDoLoginUserJson request)
     {
-        var user = await _repositoy.GetByEmailAndPassword(request.Email, _encripter.Encrypt(request.Password) ?? throw new ErrorOnDoLogin());
+        Validate(request);
+
+        var user = await _repositoy.GetByEmailAndPassword(request.Email, _encripter.Encrypt(request.Password));
         
+        if(user == null)  throw new ErrorOnDoLogin();
+
         return new ResponseRegisterUserJson()
         {
             Name = user!.Name
         };
+    }
 
+    private void Validate(RequestDoLoginUserJson request)
+    {
+        var doLoginValidator = new DoLoginUserValidator();
 
+        var result = doLoginValidator.Validate(request);
+
+        if(result.IsValid == false)
+        {
+            var errorMessages = result.Errors.Select(e => e.ErrorMessage).ToList();
+
+            throw new ErrorOnDoLogin(errorMessages);
+        }
     }
 }

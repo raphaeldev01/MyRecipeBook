@@ -6,7 +6,7 @@ public class ErrorOnValidate : MyRecipeBookException
 {
     public List<string> ErrorMessages { get; set; }
 
-    public ErrorOnValidate(List<string> errorMessages)
+    public ErrorOnValidate(List<string> errorMessages) : base(string.Empty)
     {
         ErrorMessages = errorMessages;
     }

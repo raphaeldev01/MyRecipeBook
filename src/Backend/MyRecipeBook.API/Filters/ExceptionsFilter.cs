@@ -26,7 +26,14 @@ public class ExceptionsFilter : IExceptionFilter
             var exception = context.Exception as ErrorOnValidate;
 
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception.ErrorMessages));
+            context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception!.ErrorMessages));
+        }
+        if(context.Exception is ErrorOnDoLogin)
+        {
+            var exception = context.Exception as ErrorOnDoLogin;
+
+            context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            context.Result = new UnauthorizedObjectResult(new ResponseErrorJson(exception!.ErrorMessages));
         }
     }
 

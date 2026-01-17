@@ -5,6 +5,10 @@ namespace MyRecipeBook.Infrastructure.Extensions;
 
 public static class ConfigurationExtension
 {
+    public static bool IsUnitTestEnviroment (this IConfiguration configuration)
+    {
+        return configuration.GetValue<bool>("inMemory");
+    }
 
     public static string ConnectionString(this IConfiguration configuration)
     {

@@ -14,7 +14,10 @@ public class UserBuilder
         var password = new Faker().Internet.Password();
 
         var user = new Faker<User>()
-            .RuleFor(u => u.Email, (f) => f.Internet.Email())
+            .RuleFor(u => u.Id, () => 1)
+            .RuleFor(u => u.Name, (f) => f.Person.FirstName)
+            .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
+            .RuleFor(u => u.UserIdentifyer, () => Guid.NewGuid())
             .RuleFor(u => u.Password, (f) => passwordEncripter.Encrypt(password));
 
         return (user, password);

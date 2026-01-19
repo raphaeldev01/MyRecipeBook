@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.OpenApi;
 using MyRecipeBook.API.Filters;
+using MyRecipeBook.API.Tokens;
 using MyRecipeBook.Application;
+using MyRecipeBook.Domain.Scurity.AccessToken;
 using MyRecipeBook.Domain.Services.LoggedUser;
 using MyRecipeBook.Infrastructure;
 using MyRecipeBook.Infrastructure.DataAcess.Migrations;
@@ -18,8 +20,9 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
 
 
-builder.Services.AddScoped<ILoggedUser, LoggedUser>();
+
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionsFilter)));
 

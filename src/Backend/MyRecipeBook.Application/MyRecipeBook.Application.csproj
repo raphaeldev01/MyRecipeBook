@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Services/Cryptography/" />
+    <Folder Include="UseCase/User/GetProfile/" />
     <Folder Include="UseCase/User/Register/" />
   </ItemGroup>
 

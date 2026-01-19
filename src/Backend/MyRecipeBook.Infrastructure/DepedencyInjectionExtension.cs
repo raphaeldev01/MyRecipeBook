@@ -22,9 +22,9 @@ public static class DepedencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection service, IConfiguration configuration)
     {
+        AddLoggedUser(service);
         AddTokens(service, configuration);
         AddRepositories(service);
-        AddLoggedUser(service);
 
         if (configuration.IsUnitTestEnviroment()) return;
 

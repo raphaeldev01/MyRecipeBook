@@ -11,6 +11,8 @@
     <Folder Include="Repositories/Users/" />
     <Folder Include="Scurity/" />
     <Folder Include="Scurity/AccessToken/" />
+    <Folder Include="Services/" />
+    <Folder Include="Services/LoggedUser/" />
   </ItemGroup>
 
 </Project>

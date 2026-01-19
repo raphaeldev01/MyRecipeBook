@@ -82,12 +82,27 @@ namespace MyRecipeBook.Exceptions {
 		/// <summary>
 		/// 
 		/// </summary>
+		public static string NO_TOKEN => ResourceManager.GetString("NO_TOKEN", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string PASSWORD_EMPTY => ResourceManager.GetString("PASSWORD_EMPTY", resourceCulture);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		public static string SHORT_PASSWORD => ResourceManager.GetString("SHORT_PASSWORD", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string TOKEN_INVALID => ResourceManager.GetString("TOKEN_INVALID", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string TOKEN_WITHOUT_PERMISSION => ResourceManager.GetString("TOKEN_WITHOUT_PERMISSION", resourceCulture);
 
 		/// <summary>
 		/// 

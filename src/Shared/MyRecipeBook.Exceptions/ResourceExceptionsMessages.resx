@@ -21,12 +21,24 @@
 		<value>Name cannot be empty</value>
 		<comment></comment>
 	</data>
+	<data id="c93848b9-87d0-4922-b7c0-bcda31b027f0" name="NO_TOKEN" xml:space="preserve">
+		<value>No token on request</value>
+		<comment></comment>
+	</data>
 	<data id="1d99333b-eeca-4e14-a298-9b4ccb48c30c" name="PASSWORD_EMPTY" xml:space="preserve">
 		<value>Password cannot be empty</value>
 		<comment></comment>
 	</data>
 	<data id="fad5c2b2-aeaa-4431-bab1-083ec7908c46" name="SHORT_PASSWORD" xml:space="preserve">
 		<value>This Password is too short</value>
+		<comment></comment>
+	</data>
+	<data id="6f3728c5-8ab4-4a19-aec4-c594f8141f8d" name="TOKEN_INVALID" xml:space="preserve">
+		<value>Token is invalid</value>
+		<comment></comment>
+	</data>
+	<data id="ed99a5b4-a95e-4aa2-87c9-85fb59791098" name="TOKEN_WITHOUT_PERMISSION" xml:space="preserve">
+		<value>You don't have permission </value>
 		<comment></comment>
 	</data>
 	<data id="4d2c7126-284d-42ac-bcb4-054050739f78" name="UKNOW_ERROR" xml:space="preserve">

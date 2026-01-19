@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.OpenApi;
 using MyRecipeBook.API.Filters;
 using MyRecipeBook.Application;
+using MyRecipeBook.Domain.Services.LoggedUser;
 using MyRecipeBook.Infrastructure;
 using MyRecipeBook.Infrastructure.DataAcess.Migrations;
 using MyRecipeBook.Infrastructure.Extensions;
+using MyRecipeBook.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ builder.Services.AddControllers();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
+
+
+builder.Services.AddScoped<ILoggedUser, LoggedUser>();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionsFilter)));
 
@@ -29,7 +35,9 @@ if (app.Environment.IsDevelopment())
     {
         options.SwaggerEndpoint("/openapi/v1.json", "MyRecipeBook API .NET 10");
     });
+    
 }
+
 
 // Console.WriteLine("teste");
 

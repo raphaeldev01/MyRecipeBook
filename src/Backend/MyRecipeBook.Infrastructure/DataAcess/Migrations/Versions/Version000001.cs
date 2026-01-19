@@ -11,7 +11,7 @@ public class Version000001 : VersionBase
         CreateTable("Users")
             .WithColumn("Name").AsString(255).NotNullable()
             .WithColumn("Email").AsString(255).NotNullable()
-            .WithColumn("Password").AsString(2000).NotNullable();
+            .WithColumn("Password").AsString(2000).NotNullable()
+            .WithColumn("UserIdentifyer").AsGuid().NotNullable();
     }
-
 }

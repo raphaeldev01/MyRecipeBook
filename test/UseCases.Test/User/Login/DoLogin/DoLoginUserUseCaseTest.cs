@@ -3,6 +3,7 @@ using CommonTestUtilities.Crypt;
 using CommonTestUtilities.Entities;
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Requests;
+using CommonTestUtilities.Tokens;
 using MyRecipeBook.Application.Services.Cryptography;
 using MyRecipeBook.Application.UseCase.User.Login.doLogin;
 using MyRecipeBook.Communication.Requests;
@@ -30,6 +31,8 @@ public class DoLoginUserUseCaseTest
 
         result.ShouldNotBeNull();
         result.Name.ShouldBe(user.Name);
+        result.Tokens.ShouldNotBeNull();
+        result.Tokens.AccessToken.ShouldNotBeNullOrEmpty();
     }
 
     [Fact]
@@ -49,10 +52,11 @@ public class DoLoginUserUseCaseTest
     {
         var passwordEncripter = PasswordEncrypterBuilder.Build();
         var readOnlyRepository = new UserReadOnlyRepositoryBuilder();
+        var AccessTokenGeneretor = new AccessTokenGeneretorBuilder();
 
         if (user is not null)
             readOnlyRepository.GetByEmailAndPassword(user);
 
-        return new DoLoginUseCase(readOnlyRepository.Build(), passwordEncripter);
+        return new DoLoginUseCase(readOnlyRepository.Build(), passwordEncripter, AccessTokenGeneretor.Build());
     }
 }

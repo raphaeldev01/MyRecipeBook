@@ -9,6 +9,8 @@
   <ItemGroup>
     <Folder Include="Entities/" />
     <Folder Include="Repositories/Users/" />
+    <Folder Include="Scurity/" />
+    <Folder Include="Scurity/AccessToken/" />
   </ItemGroup>
 
 </Project>

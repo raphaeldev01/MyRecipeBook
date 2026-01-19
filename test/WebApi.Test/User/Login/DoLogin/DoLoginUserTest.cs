@@ -42,6 +42,7 @@ public class DoLoginUserTest : MyRecipeBookClassFixture
         response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
         responseBody.RootElement.GetProperty("name").GetString().ShouldNotBeNull();
         responseBody.RootElement.GetProperty("name").GetString().ShouldBe(_name);
+        responseBody.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldNotBeNullOrEmpty();
     }
 
     [Fact]

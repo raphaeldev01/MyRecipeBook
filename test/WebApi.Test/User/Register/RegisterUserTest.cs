@@ -15,18 +15,16 @@ using Shouldly;
 
 namespace WebApi.Test.User.Register;
 
-public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
+public class RegisterUserTest : MyRecipeBookClassFixture
 {
-    private readonly HttpClient _httpClient;
-
-    public RegisterUserTest(CustomWebApplicationFactory factory) => _httpClient = factory.CreateClient();
+    public RegisterUserTest(CustomWebApplicationFactory factory) : base(factory) {}
 
     [Fact]
     public async Task Success()
     {
         var request = RequestRegisterUserJsonBuilder.Build();
 
-        var response = await _httpClient.PostAsJsonAsync("api/user", request);
+        var response = await DoPost("api/user", request);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
 
@@ -34,6 +32,8 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
 
         responseData.RootElement.GetProperty("name").GetString().ShouldNotBeNull();
         responseData.RootElement.GetProperty("name").GetString().ShouldBe(request.Name);
+        responseData.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldNotBeNullOrEmpty();
+
     }
 
     [Fact]
@@ -42,7 +42,7 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Name = string.Empty;
 
-        var response = await _httpClient.PostAsJsonAsync("api/user", request);
+        var response = await DoPost("api/user", request);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
 
@@ -62,7 +62,7 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Email = string.Empty;
 
-        var response = await _httpClient.PostAsJsonAsync("api/user", request);
+        var response = await DoPost("api/user", request);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
 
@@ -82,7 +82,7 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Email = "raphael.com";
 
-        var response = await _httpClient.PostAsJsonAsync("api/user", request);
+        var response = await DoPost("api/user", request);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
 
@@ -107,7 +107,7 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
     {
         var request = RequestRegisterUserJsonBuilder.Build(passwordLength);
 
-        var response = await _httpClient.PostAsJsonAsync("api/user", request);
+        var response = await DoPost("api/user", request);
 
         await using var ResponseBody = await response.Content.ReadAsStreamAsync();
 

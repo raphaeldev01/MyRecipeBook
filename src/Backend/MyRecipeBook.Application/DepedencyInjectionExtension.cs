@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyRecipeBook.Application.Services.AutoMapper;
 using MyRecipeBook.Application.Services.Cryptography;
+using MyRecipeBook.Application.UseCase.User.GetProfile;
 using MyRecipeBook.Application.UseCase.User.Login.doLogin;
 using MyRecipeBook.Application.UseCase.User.Register;
 
@@ -26,6 +27,7 @@ public static class DepedencyInjectionExtension
     {
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
+        services.AddScoped<IGetProfileUserUseCase, GetProfileUserUseCase>();
     }
 
     private static void AddPasswordEncripyter(IServiceCollection services, IConfiguration configuration)

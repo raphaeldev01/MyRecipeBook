@@ -4,11 +4,17 @@ using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using MyRecipeBook.Domain.Repositories;
 using MyRecipeBook.Domain.Repositories.Users;
+using MyRecipeBook.Domain.Scurity.AccessToken;
+using MyRecipeBook.Domain.Services.LoggedUser;
 using MyRecipeBook.Infrastructure.DataAcess;
 using MyRecipeBook.Infrastructure.DataAcess.Repositories;
 using MyRecipeBook.Infrastructure.Extensions;
+using MyRecipeBook.Infrastructure.Security.Tokens.Access.Generetor;
+using MyRecipeBook.Infrastructure.Security.Tokens.Access.Validator;
+using MyRecipeBook.Infrastructure.Services;
 
 namespace MyRecipeBook.Infrastructure;
 
@@ -16,9 +22,11 @@ public static class DepedencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection service, IConfiguration configuration)
     {
+        AddLoggedUser(service);
+        AddTokens(service, configuration);
         AddRepositories(service);
 
-        if(configuration.IsUnitTestEnviroment()) return;
+        if (configuration.IsUnitTestEnviroment()) return;
 
         AddDbContext(service, configuration);
         AddFluentMigrator(service, configuration);
@@ -55,5 +63,15 @@ public static class DepedencyInjectionExtension
         });
     }
 
-   
+    private static void AddTokens(IServiceCollection services, IConfiguration configuration)
+    {
+        var expirationTimeMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpirationTimeMinutes");
+        var signinKey = configuration.GetValue<string>("Settings:Jwt:SigninKey");
+
+        services.AddScoped<IAccessTokenGeneretor>(Options => new JwtTokenGenerator(expirationTimeMinutes, signinKey!));
+        services.AddScoped<IAccessTokenValidator>(Options => new JwtTokenValidator(signinKey!));
+    }
+
+    private static void AddLoggedUser(IServiceCollection services) => services.AddScoped<ILoggedUser, LoggedUser>();
+     
 }

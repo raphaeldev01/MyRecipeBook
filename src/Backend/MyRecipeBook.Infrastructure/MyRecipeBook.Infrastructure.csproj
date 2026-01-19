@@ -13,6 +13,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,12 @@
     <Folder Include="DataAcess/Migrations/Versions/" />
     <Folder Include="DataAcess/Repositories/" />
     <Folder Include="Extensions/" />
+    <Folder Include="Security/" />
+    <Folder Include="Security/Tokens/" />
+    <Folder Include="Security/Tokens/Access/" />
+    <Folder Include="Security/Tokens/Access/Generetor/" />
+    <Folder Include="Security/Tokens/Access/Validator/" />
+    <Folder Include="Services/" />
   </ItemGroup>
 
   <PropertyGroup>

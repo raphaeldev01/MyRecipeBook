@@ -1,4 +1,5 @@
 using System;
+using MyRecipeBook.Domain.Entities;
 
 namespace MyRecipeBook.Domain.Repositories.Users;
 

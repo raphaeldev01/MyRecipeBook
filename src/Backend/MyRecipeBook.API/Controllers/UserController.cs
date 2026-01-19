@@ -5,6 +5,7 @@ using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Application.UseCase.User.Register;
 using MyRecipeBook.Application.UseCase.User.GetProfile;
 using MyRecipeBook.API.Attributes;
+using MyRecipeBook.Application.UseCase.User.Update;
 
 namespace MyRecipeBook.API.Controllers;
 
@@ -32,5 +33,19 @@ public class UserController : MyRecipeBookBaseController
     {
         var result = await useCase.Execute();
         return Ok(result);
+    }
+
+    [HttpPut]
+    [ProducesResponseType(typeof(NoContentResult), StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    [AuthenticatedUser]
+    public async Task<IActionResult> UpdateUser(
+        [FromBody] RequestUpdateUserJson request,
+        [FromServices] IUpdateUserUseCase useCase
+    )
+    {
+        await useCase.Execute(request);
+
+        return NoContent();
     }
 }

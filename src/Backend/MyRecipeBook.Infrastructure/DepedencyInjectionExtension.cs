@@ -48,6 +48,7 @@ public static class DepedencyInjectionExtension
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+        services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
     }
 
     private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)

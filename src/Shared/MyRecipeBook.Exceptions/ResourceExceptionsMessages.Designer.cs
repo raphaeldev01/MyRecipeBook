@@ -92,6 +92,11 @@ namespace MyRecipeBook.Exceptions {
 		/// <summary>
 		/// 
 		/// </summary>
+		public static string PASSWORD_INCORRECT => ResourceManager.GetString("PASSWORD_INCORRECT", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string SHORT_PASSWORD => ResourceManager.GetString("SHORT_PASSWORD", resourceCulture);
 
 		/// <summary>

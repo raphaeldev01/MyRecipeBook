@@ -6,6 +6,7 @@ using MyRecipeBook.Application.UseCase.User.GetProfile;
 using MyRecipeBook.Application.UseCase.User.Login.doLogin;
 using MyRecipeBook.Application.UseCase.User.Register;
 using MyRecipeBook.Application.UseCase.User.Update;
+using MyRecipeBook.Application.UseCase.User.UpdatePassword;
 
 namespace MyRecipeBook.Application;
 
@@ -28,5 +29,6 @@ public static class DepedencyInjectionExtension
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         services.AddScoped<IGetProfileUserUseCase, GetProfileUserUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+        services.AddScoped<IUpdatePasswordUseCase, UpdatePasswordUseCase>();
     }
 }

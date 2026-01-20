@@ -29,6 +29,10 @@
 		<value>Password cannot be empty</value>
 		<comment></comment>
 	</data>
+	<data id="0fe44fc3-de13-496f-8b3a-2e960c614952" name="PASSWORD_INCORRECT" xml:space="preserve">
+		<value>Your password is incorrect.</value>
+		<comment></comment>
+	</data>
 	<data id="fad5c2b2-aeaa-4431-bab1-083ec7908c46" name="SHORT_PASSWORD" xml:space="preserve">
 		<value>This Password is too short</value>
 		<comment></comment>

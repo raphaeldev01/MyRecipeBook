@@ -4,7 +4,6 @@ using CommonTestUtilities.Mapper;
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Requests;
 using CommonTestUtilities.Tokens;
-using MyRecipeBook.Application.Services.Cryptography;
 using MyRecipeBook.Application.UseCase.User.Register;
 using MyRecipeBook.Exceptions;
 using MyRecipeBook.Exceptions.ExceptionsBase;

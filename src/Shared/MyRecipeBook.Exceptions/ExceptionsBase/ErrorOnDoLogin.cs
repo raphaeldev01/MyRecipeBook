@@ -4,9 +4,6 @@ namespace MyRecipeBook.Exceptions.ExceptionsBase;
 
 public class ErrorOnDoLogin : MyRecipeBookException
 {
-
-    
-
     public List<string> ErrorMessages { get; set; }
 
     public ErrorOnDoLogin(List<string>? errorMessages = null) : base(string.Empty)

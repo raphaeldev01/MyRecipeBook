@@ -8,10 +8,12 @@ using Microsoft.Extensions.Options;
 using MyRecipeBook.Domain.Repositories;
 using MyRecipeBook.Domain.Repositories.Users;
 using MyRecipeBook.Domain.Scurity.AccessToken;
+using MyRecipeBook.Domain.Scurity.Cryptography;
 using MyRecipeBook.Domain.Services.LoggedUser;
 using MyRecipeBook.Infrastructure.DataAcess;
 using MyRecipeBook.Infrastructure.DataAcess.Repositories;
 using MyRecipeBook.Infrastructure.Extensions;
+using MyRecipeBook.Infrastructure.Security.Cryptography;
 using MyRecipeBook.Infrastructure.Security.Tokens.Access.Generetor;
 using MyRecipeBook.Infrastructure.Security.Tokens.Access.Validator;
 using MyRecipeBook.Infrastructure.Services;
@@ -22,6 +24,7 @@ public static class DepedencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection service, IConfiguration configuration)
     {
+        AddEncrypter(service, configuration);
         AddLoggedUser(service);
         AddTokens(service, configuration);
         AddRepositories(service);
@@ -48,6 +51,7 @@ public static class DepedencyInjectionExtension
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+        services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
     }
 
     private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
@@ -74,4 +78,10 @@ public static class DepedencyInjectionExtension
 
     private static void AddLoggedUser(IServiceCollection services) => services.AddScoped<ILoggedUser, LoggedUser>();
      
+    private static void AddEncrypter(IServiceCollection services, IConfiguration configuration)
+    {
+        var additionalKey = configuration.GetSection("Settings:Password:additionalKey").Value!.ToString();
+
+        services.AddScoped<IPasswordEncripter>(options => new Sha512Encrypter(additionalKey));
+    }
 }

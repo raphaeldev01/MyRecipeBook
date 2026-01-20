@@ -28,9 +28,11 @@
 
   <ItemGroup>
     <Folder Include="User/" />
+    <Folder Include="User/GetProfile/" />
     <Folder Include="User/Login/" />
     <Folder Include="User/Login/DoLogin/" />
     <Folder Include="User/Register/" />
+    <Folder Include="User/UpdateUser/" />
   </ItemGroup>
 
 </Project>

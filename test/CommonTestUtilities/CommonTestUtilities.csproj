@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Entities/" />
+    <Folder Include="LoggedUser/" />
     <Folder Include="Mapper/" />
-    <Folder Include="Requests/" />
     <Folder Include="Tokens/" />
   </ItemGroup>
 

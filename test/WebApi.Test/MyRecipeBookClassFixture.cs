@@ -15,6 +15,12 @@ public class MyRecipeBookClassFixture : IClassFixture<CustomWebApplicationFactor
         return await _httpClient.PostAsJsonAsync(method, request);
     }
 
+    protected async Task<HttpResponseMessage> DoPut(string method, object request, string token)
+    {
+        AuthorizeRequest(token);
+        return await _httpClient.PutAsJsonAsync(method, request);
+    }
+
     protected async Task<HttpResponseMessage> DoGet(string method, string? token = "")
     {
         AuthorizeRequest(token);

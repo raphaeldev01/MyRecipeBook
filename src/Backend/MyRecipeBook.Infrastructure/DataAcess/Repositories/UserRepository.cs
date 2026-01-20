@@ -29,7 +29,7 @@ public class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository,
                  user.Active);
     }
 
-    public async Task<User?> GetUsetById (long id)
+    public async Task<User?> GetUserById (long id)
     {
         return await _dbContext
             .Users

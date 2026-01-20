@@ -34,7 +34,7 @@ public class UpdateUserUseCase : IUpdateUserUseCase
 
         await Validate(request, loggedUser.Email);
 
-        var user = await _userUpdateOnly.GetUsetById(loggedUser.Id);
+        var user = await _userUpdateOnly.GetUserById(loggedUser.Id);
 
         user!.Name = request.Name;
         user!.Email = request.Email;

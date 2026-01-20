@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using MyRecipeBook.Application.Services.AutoMapper;
-using MyRecipeBook.Application.Services.Cryptography;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Domain.Repositories;
 using MyRecipeBook.Domain.Repositories.Users;
 using MyRecipeBook.Domain.Scurity.AccessToken;
+using MyRecipeBook.Domain.Scurity.Cryptography;
 using MyRecipeBook.Exceptions;
 
 
@@ -21,7 +21,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly IUserWriteOnlyRepository _writeOnlyRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
-    private readonly PasswordEncripter _passwordEncripter;
+    private readonly IPasswordEncripter _passwordEncripter;
     private readonly  IAccessTokenGeneretor _accessTokenGeneretor;
 
     public RegisterUserUseCase(
@@ -29,8 +29,9 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         IUserWriteOnlyRepository writeOnlyRepository,
         IUnitOfWork unitOfWork,
         IMapper mapper,
-        PasswordEncripter passwordEncripter,
+        IPasswordEncripter passwordEncripter,
         IAccessTokenGeneretor accessTokenGeneretor
+        
     )
     {
         _writeOnlyRepository = writeOnlyRepository;

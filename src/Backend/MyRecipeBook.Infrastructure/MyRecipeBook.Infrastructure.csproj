@@ -22,7 +22,6 @@
     <Folder Include="DataAcess/Migrations/Versions/" />
     <Folder Include="DataAcess/Repositories/" />
     <Folder Include="Extensions/" />
-    <Folder Include="Security/" />
     <Folder Include="Security/Tokens/" />
     <Folder Include="Security/Tokens/Access/" />
     <Folder Include="Security/Tokens/Access/Generetor/" />

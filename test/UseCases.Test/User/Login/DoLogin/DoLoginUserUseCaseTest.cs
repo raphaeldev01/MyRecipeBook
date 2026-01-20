@@ -4,7 +4,6 @@ using CommonTestUtilities.Entities;
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Requests;
 using CommonTestUtilities.Tokens;
-using MyRecipeBook.Application.Services.Cryptography;
 using MyRecipeBook.Application.UseCase.User.Login.doLogin;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;

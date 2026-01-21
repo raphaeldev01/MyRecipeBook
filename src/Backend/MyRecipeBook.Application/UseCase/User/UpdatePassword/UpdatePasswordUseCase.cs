@@ -62,7 +62,7 @@ public class UpdatePasswordUseCase : IUpdatePasswordUseCase
                 ResourceExceptionsMessages.PASSWORD_INCORRECT
             };
 
-            throw new ErrorOnValidate(errors);
+            throw new ErrorOnDoLogin(errors);
         }
     }    
 }

@@ -39,7 +39,7 @@ public class UserController : MyRecipeBookBaseController
 
     [HttpPut]
     [ProducesResponseType(typeof(NoContentResult), StatusCodes.Status204NoContent)]
-    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
     [AuthenticatedUser]
     public async Task<IActionResult> UpdateUser(
         [FromBody] RequestUpdateUserJson request,
@@ -51,15 +51,9 @@ public class UserController : MyRecipeBookBaseController
         return NoContent();
     }
 
-
-
-
-
-
-
     [HttpPut("change-password")]
     [ProducesResponseType(typeof(NoContentResult), StatusCodes.Status204NoContent)]
-    [ProducesResponseType(typeof(UnauthorizedObjectResult), StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
     [AuthenticatedUser]
     public async Task<IActionResult> UpdatePassword (
         [FromBody] RequestUpdatePasswordJson request,

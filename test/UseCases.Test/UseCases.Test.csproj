@@ -31,6 +31,7 @@
     <Folder Include="User/Login/DoLogin/" />
     <Folder Include="User/Register/" />
     <Folder Include="User/Update/" />
+    <Folder Include="User/UpdatePassword/" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Entities/" />
+    <Folder Include="Enum/" />
     <Folder Include="Repositories/Users/" />
     <Folder Include="Scurity/AccessToken/" />
     <Folder Include="Services/" />
